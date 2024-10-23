@@ -12,8 +12,16 @@ int main(void)
 {
 	if (alphabet == 'e')
 {
-	
+	continue;
+}
+	else if (alphabet == 'q')
+{
+	continue;
+}
+	else
+{
 	putchar(alphabet);
+}
 }
 	putchar('\n');
 	return (0);
