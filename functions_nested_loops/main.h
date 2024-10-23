@@ -1,6 +1,7 @@
 #ifndef MYHEADER_H
 #define MYHEADER_H
 
+int _abs(int n);
 int print_sign(int n);
 int _isalpha(int c);
 int _islower(int c);
