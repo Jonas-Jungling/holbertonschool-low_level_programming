@@ -1,6 +1,7 @@
 #ifndef MYHEADER
 #define MYHEADER
 
+void print_chessboard(char (*a)[8]);
 char *_strstr(char *haystack, char *needle);
 char *_strpbrk(char *s, char *accept);
 int _atoi(char *s);

@@ -4,9 +4,9 @@
 /**
 * *_strstr - locates a substring
 * description: locate a substring
-* @haystack: 
-* @needle:
-* Return:
+* @haystack: string to explore
+* @needle: substring
+* Return: beginning of the located substring, or NULL
 */
 
 char *_strstr(char *haystack, char *needle)
