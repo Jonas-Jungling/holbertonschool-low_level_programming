@@ -8,7 +8,6 @@
 * Return: value or -1
 */
 
-
 int search(int n, int x)
 {
 	if (x * x == n)
