@@ -3,7 +3,7 @@
 
 /**
  * main - C programm
- * Description:  programm that prints its name
+ * Description:   program that multiplies two numbers.
  * @argc:  number of command line arguments
  * @argv:  program command line arguments
  * Return: value 0
