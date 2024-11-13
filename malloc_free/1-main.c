@@ -37,18 +37,16 @@ void print_grid(int **grid, int width, int height)
 */
 int main(void)
 {
-	int **grid;
 
-	grid = alloc_grid(6, 4);
-	if (grid == NULL)
+	char *s;
+
+	s = _strdup("Duplicated");
+	if (s == NULL)
 	{
+		printf("failed to allocate memory\n");
 		return (1);
 	}
-	print_grid(grid, 6, 4);
-	printf("\n");
-	grid[0][3] = 98;
-	grid[3][4] = 402;
-	print_grid(grid, 6, 4);
-	free_grid(grid, 4);
+	printf("%s\n", s);
+	free(s);
 	return (0);
 }
