@@ -1,19 +1,22 @@
-#include "main.h"
 #include <stdio.h>
+#include "main.h"
 
-/**
- * main - check the code 
- *
- * Return: Always 0.
- */
 int main(void)
 {
- char *s = "hello, world";
-    char *f = "worl";
+    char *s = "hello, world";
+    char *f = "world";
+    char *f2 = "notfound";
+    char *f3 = "";
     char *t;
 
     t = _strstr(s, f);
-    printf("%s\n", t);
-    return (0);
+    printf("%s\n", t); 
 
+    t = _strstr(s, f2);
+    printf("%s\n", t);  
+
+    t = _strstr(s, f3);
+    printf("%s\n", t);  
+
+    return 0;
 }
