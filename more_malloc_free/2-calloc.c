@@ -1,3 +1,7 @@
+#include "main.h"
+#include <stdlib.h>
+#include <stddef.h>
+
 /**
  * *_calloc - Allocates memory for an array of elements and initializes it to 0
  * @nmemb: The number of elements in the array.
@@ -18,6 +22,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	unsigned int total_size;
 	void *mem_total;
 	char *byte_ptr;
+	unsigned int i;
 
 	if (nmemb == 0)
 		return (NULL);
