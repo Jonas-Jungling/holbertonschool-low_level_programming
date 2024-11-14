@@ -17,6 +17,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	unsigned int total_size;
 	void *mem_total;
+	char *byte_ptr;
 
 	if (nmemb == 0)
 		return (NULL);
@@ -29,7 +30,12 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (mem_total == NULL)
 		return (NULL);
 
-	memset(mem_total, 0, total_size);
+	byte_ptr = mem_total;
+
+	for (i = 0; i < total_size; i++)
+	{
+		byte_ptr[i] = 0;
+	}
 
 	return (mem_total);
 
