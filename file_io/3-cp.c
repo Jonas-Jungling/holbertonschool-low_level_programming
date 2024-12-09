@@ -6,23 +6,42 @@
 
 #define BUFFER_SIZE 1024
 
-void error_exit(int code, const char *message, const char *filename, int fd);
+/**
+* error_exit - Prints an error message and exits the program
+* @code: The exit code
+* @message: The error message to print
+* @filename: The name of the file related to the error
+* @fd: The file descriptor to close, if any
+*/
+void error_exit(int code, const char *message, const char *filename, int fd)
+{
+	if (fd != -1)
+		close(fd);
+
+	if (filename)
+		dprintf(STDERR_FILENO, "%s %s\n", message, filename);
+	else
+		dprintf(STDERR_FILENO, "%s\n", message);
+
+	exit(code);
+}
 
 /**
- * main - Entry point du programme
- * @argc: Le nombre d'arguments
- * @argv: Un tableau des arguments
+ * main - Copies the content of a file to another file
+ * @argc: The number of arguments
+ * @argv: The arguments
  *
- * Return: 0 si tout se passe bien
+ * Return: 0 on success, or an exit code on failure
  */
 int main(int argc, char *argv[])
 {
 	int fd_from, fd_to;
+
 	ssize_t bytes_read, bytes_written;
 	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
-		error_exit(97, "Usage: cp file_from file_to\n", NULL, -1);
+		error_exit(97, "Usage: cp file_from file_to", NULL, -1);
 
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
@@ -49,23 +68,4 @@ int main(int argc, char *argv[])
 		error_exit(100, "Error: Can't close fd", NULL, fd_to);
 
 	return (0);
-}
-
-/**
- * error_exit - Gère les erreurs et quitte le programme
- * @code: Le code de sortie
- * @message: Le message d'erreur à afficher
- * @filename: Le nom du fichier concerné (optionnel)
- * @fd: Le descripteur de fichier à fermer (optionnel)
- */
-void error_exit(int code, const char *message, const char *filename, int fd)
-{
-	if (fd != -1)
-		close(fd);
-
-	if (filename)
-		dprintf(STDERR_FILENO, "%s %s\n", message, filename);
-	else
-		dprintf(STDERR_FILENO, "%s", message);
-	exit(code);
 }
